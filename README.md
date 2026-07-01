@@ -7,7 +7,7 @@
 ![NetworkX](https://img.shields.io/badge/NetworkX-Knowledge%20Graph-FF6B35?style=for-the-badge)
 ![Scikit-learn](https://img.shields.io/badge/scikit--learn-Dataset-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
+
 
 </p>
 

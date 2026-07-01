@@ -1,106 +1,134 @@
 # 🧠 Knowledge Graph Construction from the 20 Newsgroups Dataset
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10+-blue.svg">
-  <img src="https://img.shields.io/badge/scikit--learn-Dataset-orange.svg">
-  <img src="https://img.shields.io/badge/spaCy-NLP-green.svg">
-  <img src="https://img.shields.io/badge/NetworkX-Knowledge%20Graph-red.svg">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg">
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![spaCy](https://img.shields.io/badge/spaCy-NLP-09A3D5?style=for-the-badge)
+![NetworkX](https://img.shields.io/badge/NetworkX-Knowledge%20Graph-FF6B35?style=for-the-badge)
+![Scikit-learn](https://img.shields.io/badge/scikit--learn-Dataset-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
+
+</p>
+
+<p align="center">
+<b>Building an end-to-end Knowledge Graph from unstructured text using NLP, Named Entity Recognition, Relation Extraction, and NetworkX.</b>
 </p>
 
 ---
 
-# 📌 Overview
+# 🌟 Project Overview
 
-This project demonstrates the complete pipeline for constructing a **Knowledge Graph (KG)** from raw textual data using **Natural Language Processing (NLP)** techniques.
+Knowledge Graphs (KGs) represent information as interconnected entities and relationships, enabling semantic reasoning, explainable AI, GraphRAG, question answering, and intelligent search.
 
-The project utilizes the **20 Newsgroups** dataset from **scikit-learn**, performs text preprocessing, extracts named entities and semantic relationships using **spaCy**, converts them into **Subject–Relation–Object (SRO)** triples, and constructs a directed knowledge graph using **NetworkX**.
+This project demonstrates a complete pipeline that transforms raw textual documents from the **20 Newsgroups Dataset** into a structured **Knowledge Graph**.
 
-The generated graph can be visualized, analyzed, and exported into standard graph formats such as **GraphML** and **GEXF** for further exploration in **Neo4j**, **Gephi**, or **Cytoscape**.
+The workflow includes:
+
+- 📄 Text preprocessing
+- 🧹 Data cleaning
+- 🏷 Named Entity Recognition (NER)
+- 🔗 Dependency-based relation extraction
+- 📑 Subject–Relation–Object (SRO) triple generation
+- 🕸 Knowledge Graph construction
+- 📊 Graph analytics
+- 📤 Graph export for Neo4j, Gephi, Cytoscape, and GraphRAG applications
 
 ---
 
-# 🚀 Features
+# ✨ Key Features
 
-- ✅ Uses built-in 20 Newsgroups dataset
-- ✅ Automatic text preprocessing
-- ✅ Named Entity Recognition (NER)
-- ✅ Dependency-based Relation Extraction
-- ✅ Subject–Relation–Object Triple Generation
-- ✅ Knowledge Graph Construction
-- ✅ Interactive Graph Visualization
-- ✅ Graph Statistics
-- ✅ PageRank Analysis
-- ✅ Degree Centrality
-- ✅ Community Detection
-- ✅ GraphML Export
-- ✅ GEXF Export
-- ✅ Ready for Neo4j and GraphRAG
+- 📚 Built using the **20 Newsgroups Dataset**
+- 🧹 Automatic text preprocessing
+- 🏷 Named Entity Recognition using spaCy
+- 🔗 Dependency-based Relation Extraction
+- 📑 Subject–Relation–Object Triple Generation
+- 🌐 Knowledge Graph Construction using NetworkX
+- 📈 Graph Statistics and Network Analysis
+- ⭐ PageRank Analysis
+- 📊 Degree Centrality
+- 🌍 Community Detection
+- 🎨 Knowledge Graph Visualization
+- 💾 GraphML Export
+- 💾 GEXF Export
+- 🚀 Ready for Neo4j and GraphRAG
+
+---
+
+# 🏛 System Architecture
+
+```text
+                 20 Newsgroups Dataset
+                          │
+                          ▼
+                 Dataset Loading
+                          │
+                          ▼
+                  Text Cleaning
+                          │
+                          ▼
+             Named Entity Recognition
+                    (spaCy NER)
+                          │
+                          ▼
+               Dependency Parsing
+                          │
+                          ▼
+              Relation Extraction
+                          │
+                          ▼
+         Subject ─ Relation ─ Object
+                  Triple Creation
+                          │
+                          ▼
+          Knowledge Graph Construction
+             (NetworkX MultiDiGraph)
+                          │
+          ┌───────────────┴───────────────┐
+          ▼                               ▼
+   Graph Visualization            Graph Analytics
+          │                               │
+          └───────────────┬───────────────┘
+                          ▼
+              GraphML / GEXF Export
+```
 
 ---
 
 # 📂 Dataset
 
-The project uses the **20 Newsgroups Dataset** available directly from **scikit-learn**.
+This project uses the **20 Newsgroups Dataset** provided by **scikit-learn**.
 
-It contains approximately
+### Dataset Statistics
 
-- **11,314 training documents**
-- **20 different categories**
+| Property | Value |
+|-----------|-------|
+| Documents | **11,314** |
+| Categories | **20** |
+| Dataset Type | Text Classification |
+| Source | Scikit-learn |
 
-Examples include:
+Example categories include:
 
 - comp.graphics
 - sci.space
+- sci.med
 - rec.autos
 - rec.sport.hockey
+- rec.motorcycles
 - talk.politics.misc
+- talk.religion.misc
 - misc.forsale
 
-No manual download is required.
+Dataset loading:
 
 ```python
 from sklearn.datasets import fetch_20newsgroups
 
 dataset = fetch_20newsgroups(
     subset="train",
-    remove=("headers","footers","quotes")
+    remove=("headers", "footers", "quotes")
 )
-```
-
----
-
-# 🏗️ Project Pipeline
-
-```text
-20 Newsgroups Dataset
-            │
-            ▼
-Load Dataset
-            │
-            ▼
-Text Cleaning
-            │
-            ▼
-Named Entity Recognition (spaCy)
-            │
-            ▼
-Relation Extraction
-            │
-            ▼
-Subject–Relation–Object Triples
-            │
-            ▼
-Knowledge Graph Construction
-            │
-            ▼
-Graph Visualization
-            │
-            ▼
-Graph Analysis
-            │
-            ▼
-GraphML / GEXF Export
 ```
 
 ---
@@ -109,43 +137,48 @@ GraphML / GEXF Export
 
 | Technology | Purpose |
 |------------|----------|
-| Python | Programming |
+| Python | Programming Language |
 | Pandas | Data Processing |
-| Scikit-learn | Dataset |
-| spaCy | Named Entity Recognition |
+| NumPy | Numerical Computing |
+| Scikit-learn | Dataset Loading |
+| spaCy | NLP & Named Entity Recognition |
 | NetworkX | Knowledge Graph Construction |
-| Matplotlib | Visualization |
-| Regex | Text Cleaning |
+| Matplotlib | Graph Visualization |
+| Regular Expressions | Text Cleaning |
 
 ---
 
-# 📁 Project Structure
+# 📁 Repository Structure
 
 ```text
-KnowledgeGraphProject/
-
+KnowledgeGraphProject
 │
 ├── Knowledge Graph Project.ipynb
 ├── README.md
 ├── requirements.txt
 │
-├── outputs/
-│     ├── knowledge_graph.graphml
-│     ├── knowledge_graph.gexf
-│     ├── triples.csv
-│     ├── entities.csv
-│     └── graph.png
+├── outputs
+│   ├── knowledge_graph.graphml
+│   ├── knowledge_graph.gexf
+│   ├── triples.csv
+│   ├── entities.csv
+│   ├── graph_statistics.csv
+│   └── knowledge_graph.png
 │
-└── images/
+├── images
+│   ├── pipeline.png
+│   └── graph.png
+│
+└── notebooks
 ```
 
 ---
 
-# 📖 Workflow
+# 🔄 Complete Workflow
 
-## 1️⃣ Dataset Loading
+## Step 1 — Dataset Loading
 
-The project automatically loads the built-in **20 Newsgroups** dataset.
+Load the built-in **20 Newsgroups** dataset.
 
 ```python
 fetch_20newsgroups()
@@ -153,90 +186,88 @@ fetch_20newsgroups()
 
 ---
 
-## 2️⃣ Text Preprocessing
+## Step 2 — Text Preprocessing
 
-The following preprocessing steps are performed:
+Each document undergoes multiple preprocessing operations.
 
-- Lowercase conversion
-- URL removal
-- Email removal
-- Number removal
-- Punctuation removal
-- Extra whitespace removal
+✔ Lowercase conversion
 
-Example
+✔ URL removal
+
+✔ Email removal
+
+✔ Number removal
+
+✔ Punctuation removal
+
+✔ Extra whitespace removal
+
+### Example
 
 Before
 
-```
+```text
 NASA launched the satellite in 2020!!
 ```
 
 After
 
-```
-nasa launched the satellite in
+```text
+nasa launched the satellite
 ```
 
 ---
 
-## 3️⃣ Named Entity Recognition (NER)
+## Step 3 — Named Entity Recognition (NER)
 
-Entities are extracted using **spaCy**.
+Named entities are extracted using **spaCy**.
 
-Detected entity types include:
+Supported entity types include:
 
 - PERSON
 - ORG
 - GPE
 - LOC
-- DATE
 - PRODUCT
 - EVENT
+- DATE
+- NORP
 
-Example
+Example:
 
-Input
-
-```
-Apple released the new iPhone in California.
-```
-
-Output
-
-| Entity | Label |
-|---------|-------|
+| Entity | Type |
+|---------|------|
 | Apple | ORG |
 | iPhone | PRODUCT |
 | California | GPE |
 
 ---
 
-## 4️⃣ Relation Extraction
+## Step 4 — Relation Extraction
 
-Relationships between entities are extracted using **Dependency Parsing**.
+Dependency Parsing is used to identify semantic relationships.
 
-Example
+Example:
 
-Sentence
+Input Sentence
 
-```
+```text
 Microsoft acquired GitHub.
 ```
 
 Extracted Triple
 
-```
+```text
 (Microsoft, acquired, GitHub)
 ```
 
 ---
 
-## 5️⃣ Triple Generation
+## Step 5 — Triple Generation
 
-Each sentence is converted into
+Every sentence is transformed into
 
-```
+```text
 (Subject,
  Relation,
  Object)
@@ -244,95 +275,115 @@ Each sentence is converted into
 
 Example
 
-```
-NASA
-
-launched
-
-Satellite
+```text
+NASA launched Satellite
 ```
 
-becomes
+↓
 
-```
+```text
 (NASA, launch, Satellite)
 ```
 
 ---
 
-## 6️⃣ Knowledge Graph Construction
+## Step 6 — Knowledge Graph Construction
 
-The graph is built using **NetworkX MultiDiGraph**.
+The extracted triples are converted into a **NetworkX MultiDiGraph**.
 
-Each
+### Nodes
 
-Entity → Node
+Represent entities.
 
-Each
+### Edges
 
-Relationship → Edge
+Represent relationships.
 
 Example
 
-```
-Apple -------- manufactures --------► MacBook
+```text
+NASA ───── launched ─────► Satellite
 
-NASA -------- launched ------------► Satellite
+Microsoft ─ acquired ───► GitHub
 
-Einstein ---- born_in ------------► Germany
+Apple ───── created ────► MacBook
 ```
 
 ---
 
-## 7️⃣ Visualization
+## Step 7 — Visualization
 
-The generated graph is visualized using **NetworkX** and **Matplotlib**.
+The graph is visualized using **NetworkX**.
 
-The graph includes:
+Visualization includes:
 
 - Node labels
 - Directed edges
 - Relationship labels
+- Force-directed layout
 
 ---
 
-## 8️⃣ Graph Analysis
+## Step 8 — Graph Analytics
 
-The project computes several graph statistics:
+The following graph metrics are computed:
 
 - Number of Nodes
 - Number of Edges
+- Density
+- Average Degree
 - Degree Distribution
 - Degree Centrality
+- Betweenness Centrality
+- Closeness Centrality
 - PageRank
 - Connected Components
+- Community Detection
 
 ---
 
-## 9️⃣ Graph Export
+## Step 9 — Graph Export
 
-The final graph is exported as
+The final graph is exported in standard graph formats.
 
 ```
 knowledge_graph.graphml
 ```
 
-and
-
 ```
 knowledge_graph.gexf
 ```
 
-These files can be opened directly in
+These files are compatible with:
 
 - Neo4j
 - Gephi
 - Cytoscape
 - yEd
+- GraphXR
 
 ---
 
-# 📊 Example Triple
+# 📊 Sample Knowledge Graph
+
+```text
+             Apple
+               │
+        manufactures
+               │
+               ▼
+           MacBook
+
+Microsoft ─ acquired ─► GitHub
+
+NASA ───── launched ─► Satellite
+
+Einstein ─ born_in ─► Germany
+```
+
+---
+
+# 📑 Example Triples
 
 | Subject | Relation | Object |
 |----------|----------|--------|
@@ -340,44 +391,47 @@ These files can be opened directly in
 | Apple | manufactures | MacBook |
 | NASA | launched | Satellite |
 | Einstein | born_in | Germany |
+| Google | developed | Android |
 
 ---
 
-# 📈 Sample Graph
+# 📤 Generated Outputs
+
+Running the notebook produces:
 
 ```
-NASA -------- launch --------► Satellite
+✅ Named Entities
 
-Apple ------- make ----------► Computer
+✅ Subject–Relation–Object Triples
 
-Microsoft --- acquire ------► GitHub
+✅ Knowledge Graph
 
-Einstein ---- born_in ------► Germany
+✅ Graph Statistics
+
+✅ PageRank Scores
+
+✅ Degree Centrality
+
+✅ Graph Visualization
+
+✅ GraphML File
+
+✅ GEXF File
 ```
 
 ---
 
-# 📤 Outputs
-
-The project generates
-
-- Knowledge Graph
-- Triple Dataset
-- Entity Dataset
-- GraphML File
-- GEXF File
-- Graph Visualization
-- Graph Statistics
-
----
-
-# 💻 Installation
+# 🚀 Installation
 
 Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/KnowledgeGraphProject.git
+```
 
+Move into the project
+
+```bash
 cd KnowledgeGraphProject
 ```
 
@@ -387,7 +441,13 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
-Run the notebook
+Install the spaCy language model
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
+Launch Jupyter Notebook
 
 ```bash
 jupyter notebook
@@ -400,49 +460,54 @@ or open directly in **Google Colab**.
 # 📦 Requirements
 
 ```
+Python >= 3.10
+
 pandas
+
+numpy
+
 scikit-learn
+
 spacy
+
 networkx
+
 matplotlib
 ```
 
-Install spaCy model
+---
 
-```bash
-python -m spacy download en_core_web_sm
-```
+# 📈 Applications
+
+Knowledge Graphs have applications across numerous AI domains:
+
+- 🔎 Semantic Search
+- 🤖 GraphRAG
+- 💬 Question Answering
+- 🧠 Explainable AI
+- 📚 Scientific Literature Mining
+- 🏥 Healthcare Informatics
+- 💰 Fraud Detection
+- 🔐 Cybersecurity
+- 🎯 Recommendation Systems
+- 🌍 Search Engines
+- 📊 Business Intelligence
 
 ---
 
-# 📌 Applications
+# 🔮 Future Work
 
-Knowledge Graphs are widely used in
-
-- Search Engines
-- Recommendation Systems
-- Healthcare
-- Cybersecurity
-- Scientific Literature Mining
-- Semantic Search
-- Explainable AI
-- GraphRAG
-- Question Answering
-- Fraud Detection
-
----
-
-# 🔮 Future Improvements
-
-- Transformer-based NER
+- Transformer-based Named Entity Recognition
 - REBEL Relation Extraction
+- Large Language Model Integration
+- RDF Triple Store Support
+- SPARQL Querying
 - Neo4j Integration
-- RDF Triple Store
 - Graph Neural Networks (GNNs)
 - Node2Vec Embeddings
+- GraphRAG Pipeline
 - Knowledge Graph Completion
-- GraphRAG
-- Question Answering over Knowledge Graphs
+- Link Prediction
 - Temporal Knowledge Graphs
 - Multimodal Knowledge Graphs
 
@@ -450,11 +515,24 @@ Knowledge Graphs are widely used in
 
 # 📚 References
 
-- Scikit-learn 20 Newsgroups Dataset
-- spaCy Documentation
-- NetworkX Documentation
-- Neo4j Documentation
-- Google Knowledge Graph
-- RDF & OWL Specifications
+1. Scikit-learn Documentation
+2. spaCy Documentation
+3. NetworkX Documentation
+4. Neo4j Documentation
+5. Google Knowledge Graph
+6. RDF & OWL Specifications
+7. GraphRAG Research Papers
 
 ---
+
+# ⭐ If you found this project useful
+
+Please consider giving this repository a ⭐ on GitHub.
+
+It helps support the project and encourages future improvements.
+
+---
+
+<p align="center">
+<b>Built with ❤️ using Python, spaCy, NetworkX, and NLP.</b>
+</p>

@@ -49,9 +49,6 @@ The workflow includes :
 - 📊 Degree Centrality
 - 🌍 Community Detection
 - 🎨 Knowledge Graph Visualization
-- 💾 GraphML Export
-- 💾 GEXF Export
-- 🚀 Ready for Neo4j and GraphRAG
 
 ---
 

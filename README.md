@@ -1,4 +1,4 @@
-# 🧠 Knowledge Graph Construction from the 20 Newsgroups Dataset
+# 🧠 Knowledge Graph Construction 
 
 <p align="center">
 

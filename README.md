@@ -23,7 +23,7 @@ Knowledge Graphs (KGs) represent information as interconnected entities and rela
 
 This project demonstrates a complete pipeline that transforms raw textual documents from the **20 Newsgroups Dataset** into a structured **Knowledge Graph**.
 
-The workflow includes:
+The workflow includes : 
 
 - 📄 Text preprocessing
 - 🧹 Data cleaning

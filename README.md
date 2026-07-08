@@ -1,4 +1,4 @@
-# 🧠 Knowledge Graph Construction and Analysis
+# 🧠 Knowledge Graph Construction
 
 <p align="center">
 
